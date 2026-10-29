@@ -46,7 +46,7 @@ img{max-width:100%}
 .t-dark{background-color:#33342F;background-image:repeating-linear-gradient(0deg,rgba(246,238,221,.05) 0 1px,transparent 1px 6px),repeating-linear-gradient(90deg,rgba(246,238,221,.04) 0 1px,transparent 1px 6px)}
 
 /* Buttons and links */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;box-sizing:border-box;border:1px solid transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .35s,color .35s,border-color .35s}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;box-sizing:border-box;border:1px solid transparent;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .35s,color .35s,border-color .35s}
 .btn-teal{background:#014B5C;color:#F6EEDD;border-color:#014B5C}
 .btn-teal:hover{background:#A65338;border-color:#A65338;color:#F6EEDD}
 .btn-cream{background:#F6EEDD;color:#014B5C;border-color:#F6EEDD}
@@ -67,7 +67,10 @@ img{max-width:100%}
 .site-nav .navcta{background:#F6EEDD;color:#014B5C;border-color:#F6EEDD}
 .site-nav.solid .navcta{background:#014B5C;color:#F6EEDD;border-color:#014B5C}
 .site-nav .navcta:hover{background:#A65338;color:#F6EEDD;border-color:#A65338}
-.nl{color:inherit;text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 0;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s cubic-bezier(.2,.7,.2,1)}
+.site-nav .navcta.navcta-ghost{background:transparent;color:#F6EEDD;border-color:rgba(246,238,221,.6)}
+.site-nav.solid .navcta.navcta-ghost{background:transparent;color:#014B5C;border-color:#014B5C}
+.site-nav .navcta.navcta-ghost:hover{background:#A65338;color:#F6EEDD;border-color:#A65338}
+.nl{white-space:nowrap;color:inherit;text-decoration:none;font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:6px 0;background-image:linear-gradient(currentColor,currentColor);background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .5s cubic-bezier(.2,.7,.2,1)}
 .nl:hover,.nl[aria-current="page"]{color:inherit;background-size:100% 1px}
 .menubtn{display:none;align-items:center;justify-content:center;width:48px;height:48px;background:transparent;border:1px solid currentColor;color:inherit;cursor:pointer;padding:0}
 .menubtn .ic-close{display:none}
@@ -112,7 +115,7 @@ select.field{appearance:none;background-image:linear-gradient(45deg,transparent 
 @media (prefers-reduced-motion:reduce){.rise,.reveal,.unveil{animation:none!important}.ph .zi{transition:none}html{scroll-behavior:auto}}
 
 /* Responsive */
-@media (max-width:1180px){.navlinks{display:none!important}.navcta{display:none!important}.menubtn{display:inline-flex}}
+@media (max-width:1300px){.navlinks{display:none!important}.navcta{display:none!important}.menubtn{display:inline-flex}}
 @media (max-width:860px){.trow{grid-template-columns:44px minmax(0,1fr)}.trow>.tbody{grid-column:2}}
 @media (max-width:760px){.mag>*{grid-column:1/-1!important;grid-row:auto!important}.hide-sm{display:none!important}.vlabel{display:none!important}.overlap{margin-top:0!important}}
 @media (max-width:860px){.trow .hide-sm{display:none!important}}
