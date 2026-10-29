@@ -10,6 +10,8 @@ PUBLISH TO NETLIFY
 WHAT'S IN HERE
 index.html        Homepage
 businesses.html   Current tenants page
+contact.html      Contact page (form goes to Netlify Forms)
+thanks.html       Page people see after sending the contact form
 styles.css        All colors, fonts, and layout
 main.js           Nav scroll effect, mobile menu, tenant filters
 images/           Logo files (put your photos here too)
@@ -40,6 +42,12 @@ ADDING A TENANT
 In businesses.html, copy one <article class="trow" ...> block and update it.
 Set data-cat to one of the filter names exactly (for example data-cat="Food &amp; Drink").
 The filter counts update on their own.
+
+CONTACT FORM
+The contact page uses Netlify Forms. To get submissions by email, go to Netlify:
+Project configuration > Notifications > Emails and webhooks > Form submission notifications >
+Add notification > Email notification, choose the "contact" form, and enter info@boldcre.com.
+Submissions are also saved in Netlify under Forms.
 
 FONTS
 The headline font is Barlow Semi Condensed, standing in for Dress Code.
