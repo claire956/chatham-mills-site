@@ -75,10 +75,12 @@
 <div>
 <div class="lbl" style="color:#A65338">Send a Message</div>
 <h2 class="disp" style="margin:18px 0 36px;font-size:clamp(40px,4.4vw,64px);color:#014B5C">How Can We Help?</h2>
-<form name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="company-website">
-<input type="hidden" name="form-name" value="contact">
-<input type="hidden" name="subject" value="New inquiry from the Chatham Mills website">
-<p hidden><label>Leave this empty <input name="company-website"></label></p>
+<form name="contact" method="POST" action="https://formsubmit.co/info@boldcre.com">
+<input type="hidden" name="_subject" value="New inquiry from the Chatham Mills website">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" id="form-next" value="">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px">
 <div><label class="flbl" for="c-name">Name *</label><input class="field" id="c-name" name="name" type="text" autocomplete="name" required></div>
 <div><label class="flbl" for="c-email">Email *</label><input class="field" id="c-email" name="email" type="email" autocomplete="email" required></div>

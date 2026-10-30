@@ -30,6 +30,11 @@
     if (e.key === 'Escape' && body.classList.contains('menu-open')) setMenu(false);
   });
 
+
+  // Contact form: send people to our own thank-you page after FormSubmit delivers the email
+  var next = document.getElementById('form-next');
+  if (next && /^https?:/.test(location.protocol)) next.value = location.origin + '/thanks.html';
+
   // Tenant directory filters (businesses page only)
   var filters = document.querySelectorAll('.fp[data-filter]');
   var rows = document.querySelectorAll('.trow[data-cat]');

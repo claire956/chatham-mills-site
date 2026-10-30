@@ -10,7 +10,7 @@ PUBLISH TO NETLIFY
 WHAT'S IN HERE
 index.html        Homepage
 businesses.html   Current tenants page
-contact.html      Contact page (form goes to Netlify Forms)
+contact.html      Contact page (form emails info@boldcre.com via FormSubmit)
 thanks.html       Page people see after sending the contact form
 styles.css        All colors, fonts, and layout
 main.js           Nav scroll effect, mobile menu, tenant filters
@@ -44,10 +44,11 @@ Set data-cat to one of the filter names exactly (for example data-cat="Food &amp
 The filter counts update on their own.
 
 CONTACT FORM
-The contact page uses Netlify Forms. To get submissions by email, go to Netlify:
-Project configuration > Notifications > Emails and webhooks > Form submission notifications >
-Add notification > Email notification, choose the "contact" form, and enter info@boldcre.com.
-Submissions are also saved in Netlify under Forms.
+The contact form sends through FormSubmit (formsubmit.co), which is free and needs no account.
+The very first submission triggers a one-time "Activate Form" email to info@boldcre.com.
+Someone with access to that inbox has to click Activate. After that, every submission
+is emailed to info@boldcre.com and the visitor lands on thanks.html.
+To change the address, edit the action="https://formsubmit.co/info@boldcre.com" line in contact.html.
 
 FONTS
 The headline font is Barlow Semi Condensed, standing in for Dress Code.
