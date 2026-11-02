@@ -10,7 +10,7 @@ PUBLISH TO NETLIFY
 WHAT'S IN HERE
 index.html        Homepage
 businesses.html   Current tenants page
-contact.html      Contact page (form emails info@boldcre.com via FormSubmit)
+contact.html      Contact page (form emails Lewis, Chela, and Cindy via FormSubmit)
 thanks.html       Page people see after sending the contact form
 styles.css        All colors, fonts, and layout
 main.js           Nav scroll effect, mobile menu, tenant filters
@@ -45,10 +45,12 @@ The filter counts update on their own.
 
 CONTACT FORM
 The contact form sends through FormSubmit (formsubmit.co), which is free and needs no account.
-The very first submission triggers a one-time "Activate Form" email to info@boldcre.com.
+The form emails lewis@boldnc.com, with chela@boldnc.com and cindy@boldnc.com copied (the _cc line).
+The very first submission triggers a one-time "Activate Form" email to lewis@boldnc.com.
 Someone with access to that inbox has to click Activate. After that, every submission
-is emailed to info@boldcre.com and the visitor lands on thanks.html.
-To change the address, edit the action="https://formsubmit.co/info@boldcre.com" line in contact.html.
+is emailed to all three and the visitor lands on thanks.html.
+To change the main address, edit the action="https://formsubmit.co/lewis@boldnc.com" line in contact.html.
+To change the copied addresses, edit the _cc line right below it.
 
 FONTS
 The headline font is Barlow Semi Condensed, standing in for Dress Code.
