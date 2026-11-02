@@ -52,25 +52,38 @@
       e.preventDefault();
       var honey = form.querySelector('[name="_honey"]');
       if (honey && honey.value) return;
-      var data = {};
-      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      var data = new URLSearchParams();
+      new FormData(form).forEach(function (v, k) { data.append(k, v); });
       if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
       show('Sending your message...', false);
+      // FormSubmit can take a minute or more to answer. keepalive lets the request
+      // finish in the background, so visitors move on to the thank-you page after a few seconds.
+      var done = false;
+      function finish() { if (!done) { done = true; window.location.href = '/thanks.html'; } }
+      var timer = setTimeout(finish, 5000);
       fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
+        headers: { 'Accept': 'application/json' },
+        body: data,
+        keepalive: true
       })
         .then(function (r) { return r.json(); })
         .then(function (res) {
+          if (done) return;
+          clearTimeout(timer);
           if (res && (res.success === true || res.success === 'true')) {
-            window.location.href = '/thanks.html';
+            finish();
           } else {
+            done = true;
             show((res && res.message) ? res.message : fallback, true);
             reset();
           }
         })
-        .catch(function () { show(fallback, true); reset(); });
+        .catch(function () {
+          if (done) return;
+          clearTimeout(timer); done = true;
+          show(fallback, true); reset();
+        });
     });
   }
 
