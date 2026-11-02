@@ -35,6 +35,45 @@
   var next = document.getElementById('form-next');
   if (next && /^https?:/.test(location.protocol)) next.value = location.origin + '/thanks.html';
 
+  // Send the contact form in the background so visitors always see what happened
+  var form = document.querySelector('form[name="contact"]');
+  var status = document.getElementById('form-status');
+  if (form && status && window.fetch && form.action.indexOf('formsubmit.co/') > -1) {
+    var btn = form.querySelector('button[type="submit"]');
+    var btnText = btn ? btn.textContent : '';
+    var fallback = 'We couldn\'t send your message. Please email info@boldnc.com or call 919-883-5502.';
+    function show(msg, isError) {
+      status.hidden = false;
+      status.textContent = msg;
+      status.style.color = isError ? '#A65338' : '#014B5C';
+    }
+    function reset() { if (btn) { btn.disabled = false; btn.textContent = btnText; } }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var honey = form.querySelector('[name="_honey"]');
+      if (honey && honey.value) return;
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+      show('Sending your message...', false);
+      fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && (res.success === true || res.success === 'true')) {
+            window.location.href = '/thanks.html';
+          } else {
+            show((res && res.message) ? res.message : fallback, true);
+            reset();
+          }
+        })
+        .catch(function () { show(fallback, true); reset(); });
+    });
+  }
+
   // Tenant directory filters (businesses page only)
   var filters = document.querySelectorAll('.fp[data-filter]');
   var rows = document.querySelectorAll('.trow[data-cat]');
