@@ -1,0 +1,19 @@
+# Old chathammills.com (WordPress) addresses -> new pages
+/businesses             /businesses.html      301
+/directory              /businesses.html      301
+/directory/*            /businesses.html      301
+/business-directory     /businesses.html      301
+/business-directory/*   /businesses.html      301
+/tenants                /businesses.html      301
+/contact                /contact.html         301
+/contact-us             /contact.html         301
+/gallery                /                     301
+/home                   /                     301
+/about                  /#mills               301
+/about-us               /#mills               301
+/history                /#history             301
+/leasing                /#leasing             301
+/events                 /#events              301
+/farmers-market         /#events              301
+/location               /#visit               301
+/directions             /#visit               301
